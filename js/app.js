@@ -26,18 +26,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if user is already logged in
     const currentUser = Parse.User.current();
 
-    const isLoginPage = window.location.pathname.endsWith('index.php') || window.location.pathname === '/' || window.location.pathname === '';
+    const isLoginPage = window.location.pathname === '/login' || window.location.pathname === '/' || window.location.pathname === '';
 
     if (currentUser) {
         // We only renew cookie if they visit app.js again; duration here is default 7 unless we read previous pref,
         // but for safety we just set a short one or leave it alone. We will just ensure it exists.
         if (isLoginPage && !window.location.search.includes('test=1')) {
-            window.location.href = 'dashboard.php';
+            window.location.href = '/dashboard';
         }
     } else {
         eraseCookie('parse_session');
         if (!isLoginPage && !window.location.search.includes('test=1')) {
-            window.location.href = 'index.php';
+            window.location.href = '/login';
         }
     }
 
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (typeof Toast !== 'undefined') Toast.show('Login efetuado com sucesso!', 'success');
                 setTimeout(() => {
-                    window.location.href = 'dashboard.php';
+                    window.location.href = '/dashboard';
                 }, 500);
             } catch (error) {
                 if (typeof Utils !== 'undefined') Utils.setButtonLoading('loginSubmitBtn', false);
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             await Parse.User.logOut();
             eraseCookie('parse_session');
-            window.location.href = 'index.php';
+            window.location.href = '/login';
         } catch (error) {
             console.error('Error logging out:', error);
             if (typeof Toast !== 'undefined') Toast.show('Erro ao sair.', 'error');

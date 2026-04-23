@@ -1,6 +1,6 @@
 <?php
 if (!isset($_COOKIE['parse_session'])) {
-    header('Location: index.php');
+    header('Location: /login');
     exit;
 }
 ?>
@@ -22,8 +22,8 @@ if (!isset($_COOKIE['parse_session'])) {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="https://unpkg.com/imask"></script>
-    <script src="js/config.js"></script>
-    <script src="js/utils.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/utils.js"></script>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300 min-h-screen flex flex-col">
 
@@ -39,8 +39,8 @@ if (!isset($_COOKIE['parse_session'])) {
             </div>
 
             <nav id="sidebarNav" class="hidden md:block p-4 space-y-2 flex-grow">
-                <a href="dashboard.php" class="block py-2 px-4 rounded bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 font-medium">Dashboard</a>
-                <a href="profile.php" class="block py-2 px-4 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Perfil</a>
+                <a href="/dashboard" class="block py-2 px-4 rounded bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 font-medium">Dashboard</a>
+                <a href="/profile" class="block py-2 px-4 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Perfil</a>
                 <button id="logoutBtn" class="w-full text-left py-2 px-4 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-red-500 mt-auto">Sair</button>
             </nav>
         </aside>
@@ -285,7 +285,7 @@ if (!isset($_COOKIE['parse_session'])) {
     </div>
 
     <!-- Initialization and Core Logic -->
-    <script src="js/app.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/dashboard.js"></script>
 </body>
 </html>
