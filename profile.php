@@ -1,3 +1,9 @@
+<?php
+if (!isset($_COOKIE['parse_session'])) {
+    header('Location: index.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
